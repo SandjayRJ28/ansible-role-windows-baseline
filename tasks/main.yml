@@ -2,6 +2,13 @@
 - name: Include variables
   include_vars: main.yml
 
+- name: Install chocolatey-compatibility.extension
+  win_chocolatey:
+    name: chocolatey-compatibility.extension
+    version: '1.0.0'
+    source: https://github.com/SandjayRJ28/ansible-role-windows-baseline/
+    state: present
+
 - name: Install AWS Tools for Windows PowerShell 1.1.1120.20130916
   win_chocolatey:
     name: awstools.powershell
@@ -45,11 +52,11 @@
 
 # Chocolatey Installation of baseline apps.
 # Note: Powershell 5 Upgrade must be performed before ansible playbook is run.
-- name: Install AWS CLI 1.16.6 (1.16.7 unavailable)
+- name: Install AWS CLI 2.0.30 (1.16.7 unavailable)
   win_chocolatey:
     name: awscli
     state: present
-    version: '1.16.6'
+    version: '2.0.30'
     ignore_checksums: yes
 
 - name: Install WinDorStat 1.1.2.20161210
@@ -59,32 +66,32 @@
     version: '1.1.2.20161210'
     ignore_checksums: yes
 
-- name: Install Git 2.18.0
+- name: Install Git 2.39.0
   win_chocolatey:
     name: git
     state: present
-    version: '2.18.0'
+    version: '2.39.0'
     ignore_checksums: yes
 
-- name: Install Notepad++ 7.5.8
+- name: Install Notepad++ 8.4.7
   win_chocolatey:
     name: notepadplusplus
     state: present
-    version: '7.5.8'
+    version: '8.4.7'
     ignore_checksums: yes
 
-- name: Install Sysinternals 2018.8.8
+- name: Install Sysinternals 2022.11.28
   win_chocolatey:
     name: sysinternals
     state: present
-    version: '2018.8.8'
+    version: '2022.11.28'
     ignore_checksums: yes
 
-- name: Install 7Zip 18.5.0.20180730
+- name: Install 7Zip 22.1
   win_chocolatey:
     name: 7zip
     state: present
-    version: '18.5.0.20180730'
+    version: '22.1'
     ignore_checksums: yes
 
 - name: Install LogParser 2.2.0.1
@@ -94,18 +101,18 @@
     version: '2.2.0.1'
     ignore_checksums: yes
 
-- name: Install Putty 0.70.0.20171219
+- name: Install Putty 0.78
   win_chocolatey:
     name: putty
     state: present
-    version: '0.70.0.20171219'
+    version: '0.78'
     ignore_checksums: yes
 
-- name: Install Google Chrome 69.0.3497.8100
+- name: Install Google Chrome 108.0.5359.125
   win_chocolatey:
     name: googlechrome
     state: present
-    version: '69.0.3497.8100'
+    version: '108.0.5359.125'
     ignore_checksums: yes
 
 # Enable .Net Features - prerequisite for .Net installation
