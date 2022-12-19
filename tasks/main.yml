@@ -132,20 +132,6 @@
   - netfx-4.7-devpack
   - kb2919355
 
-# Pin the Applications to the task bar
-- name: Pin apps
-  win_shell: |
-    $shell = New-Object -COM "Shell.Application"
-    $folder = $shell.Namespace({{ item.path }})
-    $item = $folder.Parsename({{ item.executable }})
-    $verb = $item.Verbs() | ? {$_.Name -eq 'Pin to Tas&kbar'}
-    if ($verb -ne $null) {
-        $verb.DoIt()
-    }
-  with_items:
-    - { path: '"C:\Program Files (x86)\WinDirStat"', executable: '"windirstat.exe"' }
-    - { path: '"C:\Program Files (x86)\Google\Chrome\Application"', executable: '"chrome.exe"' }
-
 # Set the Task Scheduler to execute set-registry.ps1 on user login
 - name: Create task to run set-registry.ps1 on user login
   win_scheduled_task:
