@@ -6,8 +6,8 @@
   win_chocolatey:
     name: chocolatey-compatibility.extension
     version: '1.0.0'
-    source: https://github.com/SandjayRJ28/ansible-role-windows-baseline/
     state: present
+    ignore_checksums: yes
 
 - name: Install AWS Tools for Windows PowerShell 1.1.1120.20130916
   win_chocolatey:
